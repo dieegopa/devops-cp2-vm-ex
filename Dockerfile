@@ -18,7 +18,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 # Copiar la configuración de Nginx
 RUN apt-get update && apt-get install -y python3-pip && \
-    pip install jinja2-cli markupsafe
+    pip install jinja2-cli markupsafe --break-system-packages
 
 COPY nginx.conf.j2 /tmp/nginx.conf.j2
 
