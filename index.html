@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Elden Ring - Become the Elden Lord</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #0a0a0a;
+                color: #e0e0e0;
+            }
+            header {
+                background-color: #1a1a1a;
+                padding: 1rem;
+                text-align: center;
+            }
+            nav a {
+                color: #e0e0e0;
+                text-decoration: none;
+                margin: 0 1rem;
+            }
+            .hero {
+                background-image: url("/placeholder.svg?height=600&width=1200");
+                background-size: cover;
+                background-position: center;
+                height: 600px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            .hero-content {
+                background-color: rgba(0, 0, 0, 0.7);
+                padding: 2rem;
+                border-radius: 10px;
+            }
+            .features {
+                display: flex;
+                justify-content: space-around;
+                padding: 2rem;
+            }
+            .feature {
+                text-align: center;
+                max-width: 300px;
+            }
+            .cta {
+                text-align: center;
+                padding: 2rem;
+                background-color: #1a1a1a;
+            }
+            .button {
+                display: inline-block;
+                background-color: #8b0000;
+                color: #ffffff;
+                padding: 1rem 2rem;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            }
+            .button:hover {
+                background-color: #a50000;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="/features.html">Features</a>
+                <a href="#buy">Buy Now</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h1>Elden Ring</h1>
+                    <p>
+                        Rise, Tarnished, and be guided by grace to brandish the
+                        power of the Elden Ring and become an Elden Lord in the
+                        Lands Between.
+                    </p>
+                </div>
+            </section>
+
+            <section id="features" class="features">
+                <div class="feature">
+                    <h2>Vast World</h2>
+                    <p>
+                        Explore a meticulously crafted world full of mystery and
+                        danger.
+                    </p>
+                </div>
+                <div class="feature">
+                    <h2>Epic Battles</h2>
+                    <p>
+                        Face fearsome enemies and mighty bosses in intense
+                        combat.
+                    </p>
+                </div>
+                <div class="feature">
+                    <h2>Rich Lore</h2>
+                    <p>
+                        Uncover a deep, interconnected story written by George
+                        R.R. Martin.
+                    </p>
+                </div>
+            </section>
+
+            <section id="buy" class="cta">
+                <h2>Begin Your Journey</h2>
+                <p>Embark on an epic adventure in the Lands Between.</p>
+                <a href="#" class="button">Buy Now</a>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 FromSoftware, Inc. All rights reserved.</p>
+        </footer>
+    </body>
+</html>

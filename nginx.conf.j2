@@ -1,0 +1,55 @@
+worker_processes auto;
+pid /var/run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    # Redirigir tráfico HTTP a HTTPS
+    server {
+        listen 80;
+        server_name _;
+
+        return 301 https://$host$request_uri;
+    }
+
+    # Configuración del servidor HTTPS
+    server {
+        listen 443 ssl;
+        server_name _;
+
+        ssl_certificate /etc/nginx/certs/nginx.crt;
+        ssl_certificate_key /etc/nginx/certs/nginx.key;
+
+        auth_basic "Restricted Access";
+        auth_basic_user_file /etc/nginx/auth/.htpasswd;
+
+        location / {
+            root /usr/share/nginx/html;
+            index index.html index.htm;
+            auth_basic off;
+        }
+
+        location /features.html {
+            root /usr/share/nginx/html;
+            auth_basic "Restricted Access";
+            auth_basic_user_file /etc/nginx/auth/.htpasswd;
+        }
+
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers 'TLSv1.2:TLSv1.3:HIGH:!aNULL:!MD5:!3DES';
+        ssl_prefer_server_ciphers on;
+
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-XSS-Protection "1; mode=block" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+    }
+}
